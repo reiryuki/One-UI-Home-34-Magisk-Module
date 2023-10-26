@@ -1,8 +1,3 @@
-# boot mode
-if [ "$BOOTMODE" != true ]; then
-  abort "- Please install via Magisk/KernelSU app only!"
-fi
-
 # space
 ui_print " "
 
@@ -48,7 +43,7 @@ fi
 ui_print " "
 
 # sdk
-NUM=26
+NUM=33
 if [ "$API" -lt $NUM ]; then
   ui_print "! Unsupported SDK $API."
   ui_print "  You have to upgrade your Android version"
@@ -118,31 +113,6 @@ done
 NAMES=oneuilauncher
 conflict
 
-# function
-check_permission() {
-if ! appops get $PKG > /dev/null 2>&1; then
-  ui_print "- Checking $NAME"
-  ui_print "  of $PKG..."
-  FILE=`find $MODPATH/system -type f -name $APP.apk`
-  RES=`pm install -g -i com.android.vending $FILE 2>/dev/null`
-  if appops get $PKG > /dev/null 2>&1; then
-    if ! dumpsys package $PKG | grep -q "$NAME: granted=true"; then
-      ui_print "  ! You need to disable your Android Signature Verification"
-      ui_print "    first to use this recents provider, otherwise it will crash."
-      RES=`pm uninstall $PKG 2>/dev/null`
-      RECENTS=false
-      ui_print "  Changing one.recents to 0"
-      sed -i 's|^one.recents=1|one.recents=0|g' $OPTIONALS
-    fi
-  else
-    ui_print "  ! Failed."
-    ui_print "    Maybe insufficient storage."
-    RECENTS=false
-  fi
-  ui_print " "
-fi
-}
-
 # desktop
 FILE=$MODPATH/service.sh
 if [ "`grep_prop one.desktop $OPTIONALS`" == 1 ]; then
@@ -162,18 +132,12 @@ fi
 
 # recents
 if [ "`grep_prop one.recents $OPTIONALS`" == 1 ]; then
-  RECENTS=true
-  if [ "$API" -lt 30 ]; then
-    ui_print "- $MODNAME recents provider doesn't support the current Android version"
+  if [ "$API" -ge 34 ]; then
+    RECENTS=true
+  else
     RECENTS=false
+    ui_print "- The recents provider is only for Android 14 and up"
     ui_print " "
-  elif [ "$API" -ge 30 ] && [ "$API" -le 32 ]; then
-    APP=TouchWizHome_2017
-    PKG=com.sec.android.app.launcher
-    NAME=android.permission.MONITOR_INPUT
-    if [ "$BOOTMODE" == true ]; then
-      check_permission
-    fi
   fi
 else
   RECENTS=false
@@ -263,6 +227,22 @@ elif [ "`grep_prop permissive.mode $OPTIONALS`" == 2 ]; then
 fi
 
 # function
+extract_lib() {
+for APP in $APPS; do
+  FILE=`find $MODPATH/system -type f -name $APP.apk`
+  if [ -f `dirname $FILE`/extract ]; then
+    rm -f `dirname $FILE`/extract
+    ui_print "- Extracting..."
+    DIR=`dirname $FILE`/lib/"$ARCH"
+    mkdir -p $DIR
+    rm -rf $TMPDIR/*
+    DES=lib/"$ABI"/*
+    unzip -d $TMPDIR -o $FILE $DES
+    cp -f $TMPDIR/$DES $DIR
+    ui_print " "
+  fi
+done
+}
 hide_oat() {
 for APP in $APPS; do
   REPLACE="$REPLACE
@@ -270,9 +250,12 @@ for APP in $APPS; do
 done
 }
 
-# hide
+# extract
 APPS="`ls $MODPATH/system/priv-app` `ls $MODPATH/system/app`"
+extract_lib
+# hide
 hide_oat
+
 
 
 
