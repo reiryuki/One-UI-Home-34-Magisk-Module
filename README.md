@@ -1,14 +1,14 @@
-# One UI Home 6 Magisk Module
+# One UI Home 34 Magisk Module
 
 ## DISCLAIMER
 - One UI apps and blobs are owned by Samsung™.
 - The MIT license specified here is for the Magisk Module only, not for One UI apps and blobs.
 
 ## Descriptions
-- Home launcher app by Samsung Electronics Co., Ltd. ported from One UI 6 and integrated as a Magisk Module for all supported and rooted devices with Magisk
+- Home launcher app by Samsung Electronics Co., Ltd. ported and integrated as a Magisk Module for all supported and rooted devices with Magisk
 
 ## Sources
-- https://apkmirror.com com.sec.android.app.launcher, com.samsung.android.rubin.app, com.samsung.android.app.galaxyfinder, & com.sec.android.provider.badge by Samsung Electronics Co., Ltd.
+- https://apkmirror.com com.sec.android.app.launcher (target SDK 34), com.samsung.android.rubin.app, com.samsung.android.app.galaxyfinder, & com.sec.android.provider.badge by Samsung Electronics Co., Ltd.
 - BadgeSettings.apk by frknkrc44
 
 ## Screenshots

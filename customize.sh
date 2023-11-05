@@ -131,12 +131,13 @@ if [ "$DDT" ]; then
 fi
 
 # recents
+NUM=34
 if [ "`grep_prop one.recents $OPTIONALS`" == 1 ]; then
-  if [ "$API" -ge 34 ]; then
+  if [ "$API" -ge $NUM ]; then
     RECENTS=true
   else
     RECENTS=false
-    ui_print "- The recents provider is only for Android 14 and up"
+    ui_print "- The recents provider is only for SDK API $NUM and up"
     ui_print " "
   fi
 else
