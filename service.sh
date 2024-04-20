@@ -8,8 +8,8 @@ set -x
 API=`getprop ro.build.version.sdk`
 
 # prop
-resetprop ro.samsung.desktop.mode 0
-resetprop ro.samsung.display.device.type 0
+resetprop -n ro.samsung.desktop.mode 0
+resetprop -n ro.samsung.display.device.type 0
 
 # wait
 until [ "`getprop sys.boot_completed`" == 1 ]; do
