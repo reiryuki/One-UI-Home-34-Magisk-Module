@@ -11,6 +11,9 @@
 - https://apkmirror.com com.sec.android.app.launcher (target SDK 34), com.samsung.android.rubin.app, com.samsung.android.app.galaxyfinder, & com.sec.android.provider.badge by Samsung Electronics Co., Ltd.
 - BadgeSettings.apk by frknkrc44
 
+## Screenshots
+- https://t.me/androidryukimodsdiscussions/235630
+
 ## Requirements
 - NOT in One UI nor Touchwiz ROM
 - Android 13 and up
