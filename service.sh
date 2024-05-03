@@ -20,10 +20,7 @@ done
 PKGS="`cat $MODPATH/package.txt`
       com.sec.android.app.launcher:AppsEdge
       com.sec.android.app.launcher:cocktailsettings
-      com.sec.android.app.launcher:settingui
-      com.samsung.android.app.galaxyfinder:receiver
-      com.samsung.android.app.galaxyfinder:local
-      com.samsung.android.app.galaxyfinder:appservice"
+      com.sec.android.app.launcher:settingui"
 for PKG in $PKGS; do
   magisk --denylist rm $PKG 2>/dev/null
   magisk --sulist add $PKG 2>/dev/null
@@ -114,17 +111,6 @@ pm grant $PKG android.permission.ACTIVITY_RECOGNITION
 pm grant $PKG android.permission.ACCESS_BACKGROUND_LOCATION
 pm grant $PKG android.permission.READ_CONTACTS
 grant_permission
-
-# grant
-PKG=com.samsung.android.app.galaxyfinder
-pm grant $PKG android.permission.ACCESS_FINE_LOCATION
-pm grant $PKG android.permission.ACCESS_COARSE_LOCATION
-pm grant $PKG android.permission.READ_CONTACTS
-appops set $PKG SYSTEM_ALERT_WINDOW allow
-grant_permission
-
-
-
 
 
 

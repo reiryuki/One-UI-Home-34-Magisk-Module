@@ -8,7 +8,7 @@
 - Home launcher app by Samsung Electronics Co., Ltd. ported and integrated as a Magisk Module for all supported and rooted devices with Magisk
 
 ## Sources
-- https://apkmirror.com com.sec.android.app.launcher (target SDK 34), com.samsung.android.rubin.app, com.samsung.android.app.galaxyfinder, & com.sec.android.provider.badge by Samsung Electronics Co., Ltd.
+- https://apkmirror.com com.sec.android.app.launcher (target SDK 34), com.samsung.android.rubin.app, & com.sec.android.provider.badge by Samsung Electronics Co., Ltd.
 - BadgeSettings.apk by frknkrc44
 
 ## Screenshots
@@ -30,7 +30,6 @@
 - Reboot
 - If you are using KernelSU, you need to allow superuser list manually all package name listed in package.txt (and your home launcher app also) (enable show system apps) and reboot afterwards
 - Change your default home to this launcher via Settings app (or you can copy the content of default.sh and paste it to Termux app. Type su and grant root first!)
-- Go to app info of Finder app and allow the network access
 - If you want to use Add media page to Home screen option, you need to install Google app https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox or ported Samsung News/Free/Daily/Bixby Home app (com.samsung.android.app.spage) if it's exist.
 - If you want to change some configurations, read Troubleshootings bellow!
 
@@ -44,7 +43,12 @@
 - Global: https://t.me/androidryukimodsdiscussions/29836
 
 ## Known Issues
-- Homescreen icons on page 2 and more does not show up at the first boot until you turn off and on screen or lock screen first
+- Homescreen icons on page 2 and more does not show up at the first boot until you turn off and on screen or lock screen first or just run this command in Terminal/Termux app:
+  
+  `su`
+  
+  `am start-activity -f 0x10008000 com.sec.android.app.launcher/.Launcher`
+  
 - Edge panels doesn't work
 
 ## Support & Bug Report
