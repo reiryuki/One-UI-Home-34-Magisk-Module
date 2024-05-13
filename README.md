@@ -18,13 +18,15 @@
 - NOT in One UI nor Touchwiz ROM
 - Android 13 and up
 - Magisk or KernelSU installed
-- One UI Core Magisk Module v0.7 or above installed https://github.com/reiryuki/One-UI-Core-Magisk-Module
+- One UI Core Magisk Module or above installed https://github.com/reiryuki/One-UI-Core-Magisk-Module
 - Add media page to Home screen option requires Google app installed https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox or ported Samsung News/Free/Daily/Bixby Home app (com.samsung.android.app.spage) if it's exist.
 - Recents provider requires Android 14 and up
 - Gesture navigation requires android.permission.INJECT_EVENTS. The permission can only be granted in AOSP signatured ROM or disabled Android Signature Verification in Android 13 and bellow.
 
 ## Installation Guide & Download Link
-- Install One UI Core Magisk Module v0.7 or above first: https://github.com/reiryuki/One-UI-Core-Magisk-Module
+- Remove any other else One UI Home Magisk module with different name (no need to remove if it's the same name)
+- Reboot
+- Install One UI Core Magisk Module first: https://github.com/reiryuki/One-UI-Core-Magisk-Module
 - If you want to activate the recents provider, READ Optionals bellow!
 - Install this module https://www.pling.com/p/2100614/ via Magisk app or KernelSU app or Recovery if Magisk installed
 - Reboot
@@ -38,17 +40,17 @@
 - Android 14 LineageOS ROM
 
 ## Optionals & Troubleshootings
+- If homescreen icons on page 2 and more does not show up at the first boot, try run this command in Terminal/Termux app:
+  
+  `su`
+  
+  `am start-activity -f 0x10008000 com.sec.android.app.launcher/.Launcher`
+
 - https://t.me/androidryukimodsdiscussions/46153
 - Global: https://t.me/androidryukimodsdiscussions/60861
 - Global: https://t.me/androidryukimodsdiscussions/29836
 
 ## Known Issues
-- Homescreen icons on page 2 and more does not show up at the first boot until you turn off and on screen or lock screen first or just run this command in Terminal/Termux app:
-  
-  `su`
-  
-  `am start-activity -f 0x10008000 com.sec.android.app.launcher/.Launcher`
-  
 - Edge panels doesn't work
 
 ## Support & Bug Report
