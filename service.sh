@@ -8,7 +8,6 @@ set -x
 API=`getprop ro.build.version.sdk`
 
 # prop
-resetprop -n ro.samsung.desktop.mode 0
 resetprop -n ro.samsung.display.device.type 0
 
 # wait
@@ -36,7 +35,6 @@ else
 fi
 
 # settings
-settings put global edge_enable 0
 settings put secure edge_enable 0
 
 # function

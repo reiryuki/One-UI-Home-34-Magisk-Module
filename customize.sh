@@ -122,15 +122,6 @@ done
 NAMES=oneuilauncher
 conflict
 
-# desktop
-FILE=$MODPATH/service.sh
-if [ "`grep_prop oneui.desktop $OPTIONALS`" == 1 ]\
-|| [ "`grep_prop one.desktop $OPTIONALS`" == 1 ]; then
-  ui_print "- Enables desktop mode"
-  sed -i 's|ro.samsung.desktop.mode 0|ro.samsung.desktop.mode 1|g' $FILE
-  ui_print " "
-fi
-
 # display device type
 FILE=$MODPATH/service.sh
 DDT=`grep_prop oneui.ddt $OPTIONALS`
