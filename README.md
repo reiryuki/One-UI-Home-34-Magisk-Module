@@ -19,7 +19,7 @@
 - NOT in One UI nor Touchwiz ROM
 - Android 13 and up
 - Magisk or KernelSU installed
-- One UI Core Magisk Module or above installed https://github.com/reiryuki/One-UI-Core-Magisk-Module
+- One UI Core Magisk Module installed https://github.com/reiryuki/One-UI-Core-Magisk-Module
 - Add media page to Home screen option requires Google app installed https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox or ported Samsung News/Free/Daily/Bixby Home app (com.samsung.android.app.spage) if it's exist.
 - Recents provider requires Android 14 and up
 - Gesture navigation requires android.permission.INJECT_EVENTS. The permission can only be granted in AOSP signatured ROM or disabled Android Signature Verification in Android 13 and bellow.
@@ -37,10 +37,6 @@
 - If you want to use Add media page to Home screen option, you need to install Google app https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox or ported Samsung News/Free/Daily/Bixby Home app (com.samsung.android.app.spage) if it's exist.
 - If you want to change some configurations, read Troubleshootings bellow!
 
-## Tested on
-- Android 13 CrDroid ROM
-- Android 14 LineageOS ROM
-
 ## Optionals & Troubleshootings
 - If homescreen icons on page 2 and more does not show up at the first boot, try run this command in Terminal/Termux app:
   
@@ -52,7 +48,7 @@
 - Global: https://t.me/androidryukimodsdiscussions/60861
 - Global: https://t.me/androidryukimodsdiscussions/29836
 
-## Known Issues
+## Known Issue
 - Edge panels doesn't work
 
 ## Support & Bug Report
