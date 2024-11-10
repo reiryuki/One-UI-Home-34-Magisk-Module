@@ -46,8 +46,8 @@
   `am start-activity -f 0x10008000 com.sec.android.app.launcher/.Launcher`
 
 - https://t.me/androidryukimodsdiscussions/46153
-- Global: https://t.me/androidryukimodsdiscussions/60861
-- Global: https://t.me/androidryukimodsdiscussions/29836
+- Global: https://t.me/ryukinotes/35
+- Global: https://t.me/ryukinotes/34
 
 ## Known Issue
 - Edge panels doesn't work
