@@ -55,7 +55,7 @@
 - Global: https://t.me/ryukinotes/35
 - Global: https://t.me/ryukinotes/34
 
-## Known Issues
+## Known Issue
 - Edge panels doesn't work
 
 ## Support & Bug Report
