@@ -37,6 +37,12 @@
 - Change your default home to this launcher via Settings app (or you can copy the content of default.sh and paste it to Terminal/Termux app. Type su and grant root first!)
 - If you want to use Add media page to Home screen option, you need to install Google app https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox or ported Samsung News/Free/Daily/Bixby Home app (com.samsung.android.app.spage) if it's exist.
 - If you want to change some configurations, read Troubleshootings bellow!
+- If you are using multi user or Work Profile, don't forget to allow "Display over other apps" manually at the App Info or you can run this terminal command instead:
+
+`su`
+
+`appops set com.sec.android.app.launcher SYSTEM_ALERT_WINDOW allow`
+
 
 ## Optionals & Troubleshootings
 - If homescreen icons on page 2 and more does not show up at the first boot, try run this command in Terminal/Termux app:
@@ -49,10 +55,11 @@
 - Global: https://t.me/ryukinotes/35
 - Global: https://t.me/ryukinotes/34
 
-## Known Issue
+## Known Issues
 - Edge panels doesn't work
 
 ## Support & Bug Report
+- @KaldirimMuhendisi
 - https://t.me/androidryukimodsdiscussions/2618
 - If you don't do above, issues will be closed immediately
 

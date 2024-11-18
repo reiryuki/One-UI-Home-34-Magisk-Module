@@ -308,10 +308,12 @@ ui_print "  doesn't work. You need to reinstall this module again"
 ui_print "  after reboot to grant permissions."
 }
 patch_runtime_permisions() {
-FILE=`find /data/system /data/misc* -type f -name runtime-permissions.xml`
-chmod 0600 $FILE
-if grep -q '<package name="com.sec.android.app.launcher" />' $FILE; then
-  sed -i 's|<package name="com.sec.android.app.launcher" />|\
+# patching other than 0 causes bootloop
+FILES=`find /data/system/users/0 /data/misc_de/0 -type f -name runtime-permissions.xml`
+for FILE in $FILES; do
+  chmod 0600 $FILE
+  if grep -q '<package name="com.sec.android.app.launcher" />' $FILE; then
+    sed -i 's|<package name="com.sec.android.app.launcher" />|\
 <package name="com.sec.android.app.launcher">\
 <permission name="android.permission.WRITE_SETTINGS" granted="true" flags="0" />\
 <permission name="android.permission.CONTROL_KEYGUARD" granted="true" flags="0" />\
@@ -396,9 +398,9 @@ if grep -q '<package name="com.sec.android.app.launcher" />' $FILE; then
 <permission name="android.permission.INJECT_EVENTS" granted="true" flags="0" />\
 <permission name="android.permission.ACCESS_MEDIA_LOCATION" granted="true" flags="0" />\
 </package>\n|g' $FILE
-  warning
-elif grep -q '<package name="com.sec.android.app.launcher"/>' $FILE; then
-  sed -i 's|<package name="com.sec.android.app.launcher"/>|\
+    warning
+  elif grep -q '<package name="com.sec.android.app.launcher"/>' $FILE; then
+    sed -i 's|<package name="com.sec.android.app.launcher"/>|\
 <package name="com.sec.android.app.launcher">\
 <permission name="android.permission.WRITE_SETTINGS" granted="true" flags="0" />\
 <permission name="android.permission.CONTROL_KEYGUARD" granted="true" flags="0" />\
@@ -483,24 +485,26 @@ elif grep -q '<package name="com.sec.android.app.launcher"/>' $FILE; then
 <permission name="android.permission.INJECT_EVENTS" granted="true" flags="0" />\
 <permission name="android.permission.ACCESS_MEDIA_LOCATION" granted="true" flags="0" />\
 </package>\n|g' $FILE
-  warning
-elif grep -q '<package name="com.sec.android.app.launcher">' $FILE; then
-  COUNT=1
-  LIST=`cat $FILE | sed 's|><|>\n<|g'`
-  RES=`echo "$LIST" | grep -A$COUNT '<package name="com.sec.android.app.launcher">'`
-  until echo "$RES" | grep -q '</package>'; do
-    COUNT=`expr $COUNT + 1`
+    warning
+  elif grep -q '<package name="com.sec.android.app.launcher">' $FILE; then
+    {
+    COUNT=1
+    LIST=`cat $FILE | sed 's|><|>\n<|g'`
     RES=`echo "$LIST" | grep -A$COUNT '<package name="com.sec.android.app.launcher">'`
-  done
-  if ! echo "$RES" | grep -q 'name="android.permission.DEVICE_POWER" granted="true"'\
-  || ! echo "$RES" | grep -q 'name="android.permission.SUSPEND_APPS" granted="true"'\
-  || ! echo "$RES" | grep -q 'name="android.permission.INTERACT_ACROSS_USERS_FULL" granted="true"'; then
-    PATCH=true
-  else
-    PATCH=false
-  fi
-  if [ "$PATCH" == true ]; then
-    sed -i 's|<package name="com.sec.android.app.launcher">|\
+    until echo "$RES" | grep -q '</package>'; do
+      COUNT=`expr $COUNT + 1`
+      RES=`echo "$LIST" | grep -A$COUNT '<package name="com.sec.android.app.launcher">'`
+    done
+    } 2>/dev/null
+    if ! echo "$RES" | grep -q 'name="android.permission.DEVICE_POWER" granted="true"'\
+    || ! echo "$RES" | grep -q 'name="android.permission.SUSPEND_APPS" granted="true"'\
+    || ! echo "$RES" | grep -q 'name="android.permission.INTERACT_ACROSS_USERS_FULL" granted="true"'; then
+      PATCH=true
+    else
+      PATCH=false
+    fi
+    if [ "$PATCH" == true ]; then
+      sed -i 's|<package name="com.sec.android.app.launcher">|\
 <package name="com.sec.android.app.launcher">\
 <permission name="android.permission.WRITE_SETTINGS" granted="true" flags="0" />\
 <permission name="android.permission.CONTROL_KEYGUARD" granted="true" flags="0" />\
@@ -585,11 +589,12 @@ elif grep -q '<package name="com.sec.android.app.launcher">' $FILE; then
 <permission name="android.permission.INJECT_EVENTS" granted="true" flags="0" />\
 <permission name="android.permission.ACCESS_MEDIA_LOCATION" granted="true" flags="0" />\
 </package>\n<package name="removed">|g' $FILE
-    warning
+      warning
+    fi
+  else
+    warning_2
   fi
-else
-  warning_2
-fi
+done
 }
 
 # patch runtime-permissions.xml
