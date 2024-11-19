@@ -598,10 +598,10 @@ done
 }
 
 # patch runtime-permissions.xml
-ui_print "- Granting permissions"
-ui_print "  Please wait..."
-patch_runtime_permisions
-ui_print " "
+#ui_print "- Granting permissions"
+#ui_print "  Please wait..."
+#patch_runtime_permisions
+#ui_print " "
 
 
 
