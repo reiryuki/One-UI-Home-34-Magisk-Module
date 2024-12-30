@@ -9,6 +9,7 @@
 
 ## Sources
 - https://apkmirror.com com.sec.android.app.launcher (target SDK 34), com.samsung.android.rubin.app, & com.sec.android.provider.badge by Samsung Electronics Co., Ltd.
+- classes3.dex in TouchWizHome_2017.apk: https://dumps.tadiphone.dev/dumps/google/husky husky-user-15-AP3A.241001.005-12231455-release-keys framework.jar
 - BadgeSettings.apk by @KaldirimMuhendisi
 - libmagiskpolicy.so: Kitsune Mask R6687BB53
 
