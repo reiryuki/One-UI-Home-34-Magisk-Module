@@ -8,8 +8,7 @@
 - Home launcher app by Samsung Electronics Co., Ltd. ported and integrated as a Magisk Module for all supported and rooted devices with Magisk
 
 ## Sources
-- https://apkmirror.com com.sec.android.app.launcher (target SDK 34), com.samsung.android.rubin.app, & com.sec.android.provider.badge by Samsung Electronics Co., Ltd.
-- classes3.dex in TouchWizHome_2017.apk: https://dumps.tadiphone.dev/dumps/google/husky husky-user-15-AP3A.241001.005-12231455-release-keys framework.jar
+- https://apkmirror.com com.sec.android.app.launcher (target SDK 34) & com.sec.android.provider.badge by Samsung Electronics Co., Ltd.
 - BadgeSettings.apk by @KaldirimMuhendisi
 - libmagiskpolicy.so: Kitsune Mask R6687BB53
 
@@ -44,22 +43,19 @@
 `appops set com.sec.android.app.launcher SYSTEM_ALERT_WINDOW allow`
 
 
-## Optionals & Troubleshootings
-- If homescreen icons on page 2 and more does not show up at the first boot, try run this command in Terminal/Termux app:
-  
-  `su`
-  
-  `am start-activity -f 0x10008000 com.sec.android.app.launcher/.Launcher`
-
-- https://t.me/androidryukimodsdiscussions/46153
+## Optionals
+- https://t.me/ryukinotes/33
 - Global: https://t.me/ryukinotes/35
+
+## Troubleshootings
+- https://t.me/ryukinotes/33
 - Global: https://t.me/ryukinotes/34
 
 ## Known Issue
 - Edge panels doesn't work
 
 ## Support & Bug Report
-- https://t.me/androidryukimodsdiscussions/2618
+- https://t.me/ryukinotes/54
 - If you don't do above, issues will be closed immediately
 
 ## Credits and Contributors

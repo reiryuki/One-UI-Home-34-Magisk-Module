@@ -94,26 +94,6 @@ appops set $PKG GET_USAGE_STATS allow
 pm grant $PKG android.permission.READ_PHONE_STATE
 pm grant $PKG android.permission.READ_CONTACTS
 
-# grant
-PKG=com.samsung.android.rubin.app
-#pm grant $PKG android.permission.READ_SMS
-#pm grant $PKG android.permission.READ_CALL_LOG
-pm grant $PKG android.permission.READ_CALENDAR
-pm grant $PKG android.permission.ACCESS_FINE_LOCATION
-pm grant $PKG android.permission.ACCESS_COARSE_LOCATION
-#pm grant $PKG android.permission.PROCESS_OUTGOING_CALLS
-pm grant $PKG android.permission.GET_ACCOUNTS
-pm grant $PKG android.permission.ACTIVITY_RECOGNITION
-pm grant $PKG android.permission.ACCESS_BACKGROUND_LOCATION
-pm grant $PKG android.permission.READ_CONTACTS
-grant_permission
-
-
-
-
-
-
-
 
 
 

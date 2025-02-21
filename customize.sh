@@ -66,9 +66,15 @@ else
 fi
 
 # one ui core
-if [ ! -d /data/adb/modules/OneUICore ]; then
+FILE=/data/adb/modules/OneUICore/module.prop
+NUM=`grep_prop versionCode $FILE`
+if [ ! -f $FILE ]; then
   ui_print "! One UI Core Magisk Module is not installed."
-  ui_print "  Please read github installation guide!"
+  ui_print "  Please read the Installation Guide!"
+  abort
+elif [ "$NUM" -lt 15 ]; then
+  ui_print "! This version requires One UI Core Magisk Module"
+  ui_print "  v1.5 or above."
   abort
 else
   rm -f /data/adb/modules/OneUICore/remove
@@ -132,9 +138,6 @@ conflict
 # display device type
 FILE=$MODPATH/service.sh
 DDT=`grep_prop oneui.ddt $OPTIONALS`
-if [ ! "$DDT" ]; then
-  DDT=`grep_prop one.ddt $OPTIONALS`
-fi
 if [ "$DDT" ]; then
   ui_print "- Sets display device type to $DDT"
   sed -i "s|ro.samsung.display.device.type 0|ro.samsung.display.device.type $DDT|g" $FILE
@@ -143,8 +146,7 @@ fi
 
 # recents
 NUM=34
-if [ "`grep_prop oneui.recents $OPTIONALS`" == 1 ]\
-|| [ "`grep_prop one.recents $OPTIONALS`" == 1 ]; then
+if [ "`grep_prop oneui.recents $OPTIONALS`" == 1 ]; then
   if [ "$API" -ge $NUM ]; then
     RECENTS=true
   else
