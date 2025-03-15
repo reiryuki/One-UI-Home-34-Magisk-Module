@@ -7,9 +7,6 @@ set -x
 # var
 API=`getprop ro.build.version.sdk`
 
-# prop
-resetprop -n ro.samsung.display.device.type 0
-
 # wait
 until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 10
@@ -93,6 +90,9 @@ appops set $PKG SYSTEM_ALERT_WINDOW allow
 appops set $PKG GET_USAGE_STATS allow
 pm grant $PKG android.permission.READ_PHONE_STATE
 pm grant $PKG android.permission.READ_CONTACTS
+if [ "$API" -ge 35 ]; then
+  appops set $PKG RECEIVE_SENSITIVE_NOTIFICATIONS allow
+fi
 
 
 
