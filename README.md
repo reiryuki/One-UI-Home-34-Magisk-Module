@@ -51,8 +51,9 @@
 - https://t.me/ryukinotes/33
 - Global: https://t.me/ryukinotes/34
 
-## Known Issue
+## Known Issues
 - Edge panels doesn't work
+- Does not support navbar overlay in Android 15 QPR2 ROMs and up if recents provider is activated
 
 ## Support & Bug Report
 - https://t.me/ryukinotes/54

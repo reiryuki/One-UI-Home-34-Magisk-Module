@@ -35,19 +35,7 @@ fi
 settings put secure edge_enable 0
 
 # function
-grant_permission() {
-pm grant $PKG android.permission.READ_EXTERNAL_STORAGE
-pm grant $PKG android.permission.WRITE_EXTERNAL_STORAGE
-if [ "$API" -ge 29 ]; then
-  pm grant $PKG android.permission.ACCESS_MEDIA_LOCATION 2>/dev/null
-  appops set $PKG ACCESS_MEDIA_LOCATION allow
-fi
-if [ "$API" -ge 33 ]; then
-  pm grant $PKG android.permission.READ_MEDIA_AUDIO 2>/dev/null
-  pm grant $PKG android.permission.READ_MEDIA_VIDEO
-  pm grant $PKG android.permission.READ_MEDIA_IMAGES
-  appops set $PKG ACCESS_RESTRICTED_SETTINGS allow
-fi
+appops_set() {
 appops set $PKG LEGACY_STORAGE allow
 appops set $PKG READ_EXTERNAL_STORAGE allow
 appops set $PKG WRITE_EXTERNAL_STORAGE allow
@@ -57,6 +45,9 @@ appops set $PKG READ_MEDIA_IMAGES allow
 appops set $PKG WRITE_MEDIA_AUDIO allow
 appops set $PKG WRITE_MEDIA_VIDEO allow
 appops set $PKG WRITE_MEDIA_IMAGES allow
+if [ "$API" -ge 29 ]; then
+  appops set $PKG ACCESS_MEDIA_LOCATION allow
+fi
 if [ "$API" -ge 30 ]; then
   appops set $PKG MANAGE_EXTERNAL_STORAGE allow
   appops set $PKG NO_ISOLATED_STORAGE allow
@@ -64,6 +55,9 @@ if [ "$API" -ge 30 ]; then
 fi
 if [ "$API" -ge 31 ]; then
   appops set $PKG MANAGE_MEDIA allow
+fi
+if [ "$API" -ge 33 ]; then
+  appops set $PKG ACCESS_RESTRICTED_SETTINGS allow
 fi
 if [ "$API" -ge 34 ]; then
   appops set $PKG READ_MEDIA_VISUAL_USER_SELECTED allow
@@ -86,12 +80,14 @@ fi
 
 # grant
 PKG=com.sec.android.app.launcher
-appops set $PKG SYSTEM_ALERT_WINDOW allow
-appops set $PKG GET_USAGE_STATS allow
-pm grant $PKG android.permission.READ_PHONE_STATE
-pm grant $PKG android.permission.READ_CONTACTS
-if [ "$API" -ge 35 ]; then
-  appops set $PKG RECEIVE_SENSITIVE_NOTIFICATIONS allow
+if appops get $PKG > /dev/null 2>&1; then
+  pm grant --all-permissions $PKG
+  appops set $PKG SYSTEM_ALERT_WINDOW allow
+  appops set $PKG GET_USAGE_STATS allow
+  if [ "$API" -ge 35 ]; then
+    appops set $PKG RECEIVE_SENSITIVE_NOTIFICATIONS allow
+  fi
+  appops_set
 fi
 
 
