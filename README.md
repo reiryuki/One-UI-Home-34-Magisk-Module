@@ -5,7 +5,7 @@
 - The MIT license specified here is for the Magisk Module only, not for One UI apps and blobs.
 
 ## Descriptions
-- Home launcher app by Samsung Electronics Co., Ltd. ported and integrated as a Magisk Module for all supported and rooted devices with Magisk
+- Home launcher app by Samsung Electronics Co., Ltd. ported and integrated as a Magisk Module for all supported and rooted devices with Magisk.
 
 ## Sources
 - https://apkmirror.com com.sec.android.app.launcher (target SDK 34) & com.sec.android.provider.badge by Samsung Electronics Co., Ltd.
@@ -52,12 +52,13 @@
 - Global: https://t.me/ryukinotes/34
 
 ## Known Issues
-- Edge panels doesn't work
-- Does not support navbar overlay in Android 15 QPR2 ROMs and up if recents provider is activated
+- Edge panels doesn't work.
+- Recents tumbnails are blacked out in some ROMs. If your device support vulkan, this module https://github.com/reiryuki/SKIA-UI-Renderer-Enabler-Magisk-Module may fix that.
+- Does not support navbar overlay in Android 15 QPR2 ROMs and up if recents provider is activated.
 
 ## Support & Bug Report
 - https://t.me/ryukinotes/54
-- If you don't do above, issues will be closed immediately
+- If you don't do above, issues will be closed immediately and ignored.
 
 ## Credits and Contributors
 - @KaldirimMuhendisi
