@@ -1,7 +1,7 @@
 id=OneUIHome
 name=One UI Home 34
-version=v3.0
-versionCode=30
+version=v3.1
+versionCode=31
 author=Rei Ryuki the Fixer
 description=Home launcher app target SDK 34 by Samsung Electronics Co., Ltd. ported for any Android 13 (SDK 33) and up.
 
