@@ -5,19 +5,57 @@
 - The MIT license specified here is for the Magisk Module only, not for One UI apps and blobs.
 
 ## Descriptions
-- Home launcher app by Samsung Electronics Co., Ltd. ported and integrated as a Magisk Module for all supported and rooted devices with Magisk.
+Home launcher app by Samsung Electronics Co., Ltd. ported and integrated as a Magisk Module for all supported and rooted devices with Magisk.
 
 ## Sources
 - https://apkmirror.com com.sec.android.app.launcher (target SDK 34) & com.sec.android.provider.badge by Samsung Electronics Co., Ltd.
 - BadgeSettings.apk by @KaldirimMuhendisi
-- libmagiskpolicy.so: Kitsune Mask R6687BB53
+- libmagiskpolicy.so: Magisk (stable) 30.7 (30700)
+
+## Changelog
+
+v3.3
+- Update libmagiskpolicy.so from Magisk (stable) 30.7 (30700)
+- Fix crash
+
+v3.2
+- Re-fix a method
+
+v3.1
+- Fix wrong target in latest KernelSU
+- Fix denial if executing default.sh
+
+v3.0
+- Fix a crash in foldable mode
+- Re-fix some methods
+- Set secondary launcher
+
+v2.9
+- Fix some methods
+- Add a warning if root is not granted in KernelSU
+
+v2.8
+- Revert layout params alpha to 1
+- Fix selinux denial
+
+v2.7
+- Re-fix conflict with PixelConfigOverlayCommon.apk
+
+v2.6
+- Does not use root to swipe up to home in full gesture
+
+v2.5
+- Removes conflicted overlay PixelConfigOverlayCommon.apk systemlessly if oneui.recents=1
+
+v2.4
+- Android 15 QPR2 (BP1A) support
 
 ## Screenshots
-- https://t.me/androidryukimodsdiscussions/235630
+https://t.me/androidryukimodsdiscussions/235630
 
 ## Requirements
 - NOT in One UI nor Touchwiz ROM
-- Android 13 (SDK 33) and up
+- Android 13 (SDK 33) and 14 (SDK 34) only
 - Magisk or Kitsune Mask or KernelSU or Apatch installed
 - One UI Core Magisk Module installed https://github.com/reiryuki/One-UI-Core-Magisk-Module
 - Add media page to Home screen option requires Google app installed https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox or ported Samsung News/Free/Daily/Bixby Home app (com.samsung.android.app.spage) if it's exist.
@@ -27,10 +65,10 @@
 ## Installation Guide & Download Link
 - Remove any other else One UI Home Magisk module with different name (no need to remove if it's the same name)
 - Reboot
-- If you are using KernelSU, you need to disable Unmount Modules by Default in KernelSU app settings and install https://github.com/KernelSU-Modules-Repo/meta-overlayfs first
+- If you are using KernelSU, you need to disable Unmount Modules by Default in KernelSU app settings and install https://github.com/KernelSU-Modules-Repo/meta-overlayfs or https://github.com/KernelSU-Modules-Repo/magic_mount_rs or https://github.com/KernelSU-Modules-Repo/hybrid_mount first depending on ROM compatibility
 - Install One UI Core Magisk Module first: https://github.com/reiryuki/One-UI-Core-Magisk-Module
 - If you want to activate the recents provider, READ Optionals bellow!
-- Install this module https://www.pling.com/p/2100614/ via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
+- Install this module via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
 - Reboot
 - If you are using KernelSU, you need to allow superuser list manually all package name listed in package.txt (and your home launcher app also) (enable show system apps) and reboot afterwards
 - Change your default home to this launcher via Settings app (or you can copy the content of default.sh and paste it to Terminal/Termux app. Type su and grant root first!)
@@ -66,6 +104,6 @@
 - You can contribute ideas about this Magisk Module here: https://t.me/androidappsportdevelopment
 
 ## Sponsors
-- https://t.me/ryukinotes/25
+https://t.me/ryukinotes/25
 
 
