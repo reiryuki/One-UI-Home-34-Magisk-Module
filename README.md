@@ -57,7 +57,7 @@ https://t.me/androidryukimodsdiscussions/235630
 - One UI Core Magisk Module installed https://github.com/reiryuki/One-UI-Core-Magisk-Module
 - Add media page to Home screen option requires Google app installed https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox or ported Samsung News/Free/Daily/Bixby Home app (com.samsung.android.app.spage) if it's exist.
 - Recents provider requires Android 14 (SDK 34) and up
-- Full gesture navigation and double tap to sleep requires root permission (except in AOSP signatured ROM)
+- Full gesture navigation and double tap to sleep requires root permission
 
 ## Installation Guide & Download Link
 - Remove any other else One UI Home Magisk module with different name (no need to remove if it's the same name)
