@@ -47,9 +47,6 @@ v2.6
 v2.5
 - Removes conflicted overlay PixelConfigOverlayCommon.apk systemlessly if oneui.recents=1
 
-v2.4
-- Android 15 QPR2 (BP1A) support
-
 ## Screenshots
 https://t.me/androidryukimodsdiscussions/235630
 
@@ -92,7 +89,6 @@ https://t.me/androidryukimodsdiscussions/235630
 ## Known Issues
 - Edge panels doesn't work.
 - Recents tumbnails are blacked out in some ROMs. If your device support vulkan, this module https://github.com/reiryuki/SKIA-UI-Renderer-Enabler-Magisk-Module may fix that.
-- Does not support navbar overlay in Android 15 QPR2 ROMs and up if recents provider is activated.
 
 ## Support & Bug Report
 - https://t.me/ryukinotes/54
