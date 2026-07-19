@@ -618,7 +618,7 @@ for FILE in $FILES; do
     LIST=`cat $FILE | sed 's|><|>\n<|g'`
     RES=`echo "$LIST" | grep -A$COUNT '<package name="com.sec.android.app.launcher">'`
     until echo "$RES" | grep -q '</package>'; do
-      COUNT=`expr $COUNT + 1`
+      COUNT=$((COUNT + 1))
       RES=`echo "$LIST" | grep -A$COUNT '<package name="com.sec.android.app.launcher">'`
     done
     } 2>/dev/null

@@ -14,6 +14,12 @@ Home launcher app by Samsung Electronics Co., Ltd. ported and integrated as a Ma
 
 ## Changelog
 
+v3.5
+- Fix selinux denial
+- Fix bug in cleaner.sh
+- Resets module folders/files permissions at post-fs-data
+- Move _uninstall.log to /data/adb/logs/
+
 v3.4
 - Fix wrong logic in semDisplayDeviceType method
 
@@ -47,9 +53,6 @@ v2.7
 v2.6
 - Does not use root to swipe up to home in full gesture
 
-v2.5
-- Removes conflicted overlay PixelConfigOverlayCommon.apk systemlessly if oneui.recents=1
-
 ## Screenshots
 https://t.me/androidryukimodsdiscussions/235630
 
@@ -68,7 +71,7 @@ https://t.me/androidryukimodsdiscussions/235630
 - If you are using KernelSU, you need to disable Unmount Modules by Default in KernelSU app settings and install https://github.com/KernelSU-Modules-Repo/meta-overlayfs or https://github.com/KernelSU-Modules-Repo/magic_mount_rs or https://github.com/KernelSU-Modules-Repo/hybrid_mount or https://github.com/maxsteeel/nomount first depending on ROM compatibility
 - Install One UI Core Magisk Module first: https://github.com/reiryuki/One-UI-Core-Magisk-Module
 - If you want to activate the recents provider, READ Optionals bellow!
-- Install this module https://devuploads.com/ulgkejt6bhiu via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
+- Install this module https://github.com/reiryuki/One-UI-Home-34-Magisk-Module via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
 - Reboot
 - If you are using KernelSU, you need to allow superuser list manually all package name listed in package.txt (and your home launcher app also) (enable show system apps) and reboot afterwards
 - Change your default home to this launcher via Settings app (or you can copy the content of default.sh and paste it to Terminal/Termux app. Type su and grant root first!)
@@ -100,7 +103,7 @@ https://t.me/androidryukimodsdiscussions/235630
 ## Credits and Contributors
 - @KaldirimMuhendisi
 - https://t.me/androidryukimodsdiscussions
-- You can contribute ideas about this Magisk Module here: https://t.me/androidappsportdevelopment
+- https://t.me/androidappsportdevelopment
 
 ## Sponsors
 https://t.me/ryukinotes/25
