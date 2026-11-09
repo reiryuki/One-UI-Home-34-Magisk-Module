@@ -28,6 +28,7 @@ https://t.me/androidryukimodsdiscussions/235630
 
 v3.7 https://github.com/reiryuki/One-UI-Home-34-Magisk-Module
 - Fix semDisplayDeviceType method using createConfigurationContext
+- Update libmagiskpolicy.so from Magisk (debug) 31.0 (31000)
 
 v3.6 https://move2link.co/0916a5e
 - Fix crashes NullPointerException
