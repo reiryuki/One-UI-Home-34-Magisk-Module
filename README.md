@@ -26,7 +26,7 @@ https://t.me/androidryukimodsdiscussions/235630
 
 ## Download Links and Changelog
 
-v3.7 https://github.com/reiryuki/One-UI-Home-34-Magisk-Module
+v3.7 https://move2link.co/7f0364c
 - Fix semDisplayDeviceType method using createConfigurationContext
 - Update libmagiskpolicy.so from Magisk (debug) 31.0 (31000)
 
